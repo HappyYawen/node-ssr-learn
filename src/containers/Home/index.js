@@ -1,6 +1,5 @@
 //node代码结构下，不支持esmodule形式的import。只支持common.js语法结构
 import React, { useEffect } from 'react'
-import Header from '../../components/Header'
 import { connect } from 'react-redux'
 import { getHomeList } from './store/actions'
 
@@ -15,7 +14,6 @@ const Home = (props) => {
     },[])
     return (
         <div>
-            <Header/>
             <div>welcome to home, {props.name}!</div>
             <ul>
             {

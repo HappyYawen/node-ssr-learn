@@ -3,6 +3,7 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { BrowserRouter, Route } from 'react-router-dom'
+import { renderRoutes } from 'react-router-config'
 import Routes from '../Routes'
 import { getClientStore } from '../store'
 import { Provider } from 'react-redux'
@@ -14,7 +15,9 @@ const App = () => {
         <Provider store={store}>
             <BrowserRouter>
             {//静态Routes对象，需要渲染为Route组件
-                Routes.map(route => (<Route {...route}/>))
+                // Routes.map(route => (<Route {...route}/>))
+                //渲染多级路由
+                renderRoutes(Routes)
             }
             </BrowserRouter>
         </Provider>

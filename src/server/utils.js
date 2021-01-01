@@ -1,6 +1,7 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { StaticRouter, Route } from 'react-router-dom'
+import { renderRoutes } from 'react-router-config'
 import { Provider } from 'react-redux'
 
 
@@ -13,9 +14,7 @@ export const render = (store, routes, req) => {
             <StaticRouter location={req.path} context={{}}>
                 {
                 //静态Routes对象，需要渲染为Route组件
-                routes.map(route => (
-                    <Route {...route}/>
-                ))
+                renderRoutes(routes)
                 }
             </StaticRouter>
         </Provider>
