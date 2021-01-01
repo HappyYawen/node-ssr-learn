@@ -8,7 +8,10 @@ import { getHomeList } from './store/actions'
 const Home = (props) => {
     //只有在客户端渲染的时候，才会执行
     useEffect(() => {
-        props.getHomeList()
+        if(!props.list.length) {
+            //防止重复请求
+            props.getHomeList()
+        }
     },[])
     return (
         <div>

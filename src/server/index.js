@@ -4,6 +4,8 @@
 //使用webpack和babel编译，可以使用exmodule的语法了
 
 import express from 'express'
+import { createProxyMiddleware } from 'http-proxy-middleware' //代理服务器
+
 import {render} from './utils'
 import { matchRoutes } from 'react-router-config'
 import Routes from '../Routes'
@@ -12,6 +14,17 @@ import { getStore } from '../store'
 
 const app = express()
 app.use(express.static('public')) //如果路由访问得失静态文件，就去public的目录下去找
+
+//搭建代理服务器，完善node中间层的角色
+app.use('/api', createProxyMiddleware({
+    target: 'https://cz.droomo.top/mock/5feee0617f482a4b8a59b35b',
+    pathRewrite: {
+        '^/api': '/example', // rewrite path
+      },
+    changeOrigin: true,
+    //添加配置，https请求，不需要SSL证书验证
+    secure: false
+}))
 
 //虚拟Dom是真是Dom的一个javascript对象映射，对服务端渲染提供了很大的便利
 //浏览器端渲染
