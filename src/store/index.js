@@ -11,6 +11,7 @@ export const getStore = () => {
     return createStore(reducer, applyMiddleware(thunk))
 }
 export const getClientStore = () => {
+    //客户端的脱水
     const defaultState = window.context.state
     return createStore(reducer, defaultState, applyMiddleware(thunk))
 }

@@ -31,6 +31,7 @@ export const render = (store, routes, req) => {
                 <p>hello world</p>
                 <div id="root">${content}</div>
                 <script>
+                    //客户端的注水
                     window.context.state = ${JSON.stringify(store.getState())}
                 </script>
                 <script src="/index.js"></script>
