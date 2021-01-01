@@ -12,7 +12,6 @@
   "author": "karla.guo",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.5",
     "babel-preset-env": "1.7.0",
@@ -23,6 +22,7 @@
     "react": "17.0.0",
     "react-dom": "17.0.0",
     "react-redux": "^7.2.2",
+    "react-router-config": "^5.1.1",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",

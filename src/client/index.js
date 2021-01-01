@@ -2,7 +2,7 @@
 //还是需要webpack编译以下
 import React from 'react'
 import ReactDom from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import Routes from '../Routes'
 import getStore from '../store'
 import { Provider } from 'react-redux'
@@ -11,7 +11,9 @@ const App = () => {
     return (
         <Provider store={getStore()}>
             <BrowserRouter>
-            {Routes}
+            {//静态Routes对象，需要渲染为Route组件
+                Routes.map(route => (<Route {...route}/>))
+            }
             </BrowserRouter>
         </Provider>
     )
